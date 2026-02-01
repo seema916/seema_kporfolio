@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seema K | Portfolio</title>
+  <style>
+    :root{
+      --bg:#0e1026; --card:#161a3a; --accent:#7c8cff; --accent2:#ff8ccf;
+      --text:#f2f3ff; --muted:#b6baff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:system-ui,Segoe UI,Roboto;
+      background:linear-gradient(180deg,#0b0f2a,#0e1026);
+      color:var(--text);
+    }
+
+    /* Top Navigation */
+    .topnav{
+      position:fixed; top:0; right:0; left:0; z-index:1000;
+      display:flex; justify-content:flex-end; gap:10px;
+      padding:14px 18px; backdrop-filter:blur(10px);
+      background:rgba(11,15,42,.7);
+    }
+    .topnav button{
+      background:transparent; border:1px solid rgba(124,140,255,.35);
+      color:var(--text); padding:10px 14px; border-radius:12px;
+      cursor:pointer; font-size:14px
+    }
+    .topnav button.active,.topnav button:hover{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#0b0f2a; font-weight:600
+    }
+
+    .container{max-width:900px;margin:auto;padding:100px 20px 40px}
+    .hero{display:grid;grid-template-columns:140px 1fr;gap:20px;align-items:center}
+    .avatar{width:140px;height:140px;border-radius:50%;padding:4px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2))}
+    .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+    h1{margin:0;font-size:28px}
+    .tag{color:var(--muted)}
+
+    section{margin-top:26px}
+    .card{background:linear-gradient(180deg,#1a1f4a,#14183a);
+      border-radius:22px; padding:22px;
+      animation:cardIn .6s ease both}
+
+    @keyframes cardIn{
+      from{opacity:0;transform:translateY(20px) scale(.98)}
+      to{opacity:1;transform:none}
+    }
+    h2{margin-top:0;font-size:22px}
+    p,li{font-size:15.5px;line-height:1.7}
+    ul{padding-left:18px}
+    .badge{display:inline-block;margin:6px 6px 0 0;font-size:12px;
+      padding:6px 12px;border-radius:999px;
+      background:rgba(124,140,255,.2);
+      transition:.3s}
+    .badge:hover{transform:translateY(-3px);background:rgba(255,140,207,.35)}
+
+    .nav-btn{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#0b0f2a;border:none;border-radius:14px;
+      padding:12px 18px;font-size:14px;font-weight:600;
+      cursor:pointer;transition:.3s
+    }
+    .nav-btn:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(0,0,0,.35)}
+
+    /* Pages */
+    .page{display:none;animation:fade .4s ease}
+    .page.active{display:block}
+    @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
+
+    @media(max-width:700px){
+      .hero{grid-template-columns:1fr;text-align:center}
+      .avatar{margin:auto}
+      .topnav{justify-content:center;flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP NAVIGATION (always visible) -->
+<nav class="topnav">
+  <button class="active" onclick="openPage('about',this)">About</button>
+  <button onclick="openPage('academics',this)">Academics</button>
+  <button onclick="openPage('skills',this)">Skills</button>
+  <button onclick="openPage('projects',this)">Projects</button>
+  <button onclick="openPage('certificates',this)">Certificates</button>
+  <button onclick="openPage('contact',this)">Contact</button>
+</nav>
+
+<div class="container">
+
+  <!-- ABOUT PAGE -->
+  <section id="about" class="page active">
+    <div class="card">
+      <div class="hero">
+        <div class="avatar"><img src="" alt="Seema K"></div>
+        <div>
+          <h1>Seema K</h1>
+          <p class="tag">B.Tech – Information Technology | UI/UX & Web Enthusiast</p>
+        </div>
+      </div>
+
+      <section>
+        <h2>About Me</h2>
+        <p>I am a motivated and enthusiastic Information Technology student with a strong passion for designing and developing user‑centric digital solutions. I enjoy transforming ideas into visually appealing and functional web interfaces.</p>
+      </section>
+
+      <section>
+        <h2>Career Objective</h2>
+        <p>To secure a challenging role where I can apply my technical knowledge, creativity, and problem‑solving skills while continuously learning and contributing to the growth of the organization.</p>
+      </section>
+
+      <section>
+        <h2>Strengths</h2>
+        <ul>
+          <li>Strong communication and teamwork skills</li>
+          <li>Creative thinking with attention to detail</li>
+          <li>Quick learner and adaptable to new technologies</li>
+          <li>Problem‑solving and analytical mindset</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Areas of Interest</h2>
+        <span class="badge">UI / UX Design</span>
+        <span class="badge">Web Development</span>
+        <span class="badge">Frontend Design</span>
+        <span class="badge">Human‑Centered Design</span>
+      </section>
+
+      <section>
+        <h2>Conclusion</h2>
+        <p>I aspire to build meaningful digital experiences that combine usability, aesthetics, and performance. With dedication and continuous learning, I aim to grow as a skilled professional in the field of UI/UX and web development.</p>
+      </section>
+
+      <!-- QUICK NAVIGATION BELOW ABOUT -->
+      <section>
+        <h2>Explore More</h2>
+        <p>You can navigate through my academic details, skills, projects, and certifications using the options below.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <button class="nav-btn" onclick="openPage('academics',document.querySelector('[onclick*=academics]'))">Academics</button>
+          <button class="nav-btn" onclick="openPage('skills',document.querySelector('[onclick*=skills]'))">Skills</button>
+          <button class="nav-btn" onclick="openPage('projects',document.querySelector('[onclick*=projects]'))">Projects</button>
+          <button class="nav-btn" onclick="openPage('certificates',document.querySelector('[onclick*=certificates]'))">Certificates</button>
+          <button class="nav-btn" onclick="openPage('contact',document.querySelector('[onclick*=contact]'))">Contact</button>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ACADEMICS -->
+  <section id="academics" class="page">
+    <div class="card">
+      <h2>Academics</h2>
+      <ul>
+        <li><strong>Velammal College of Engineering and Technology</strong><br>B.Tech IT (2027) – 8.49 CGPA</li>
+        <li><strong>The TVS</strong><br>HSC (2023) – 78%</li>
+        <li><strong>The TVS</strong><br>SSLC (2022) – Pass</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="page">
+    <div class="card">
+      <h2>Skills</h2>
+      <span class="badge">Java</span><span class="badge">HTML</span><span class="badge">CSS</span>
+      <span class="badge">JavaScript</span><span class="badge">UI / UX</span>
+      <span class="badge">Communication</span><span class="badge">Teamwork</span>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="page">
+    <div class="card">
+      <h2>Projects</h2>
+      <ul>
+        <li>UI / UX Design Projects</li>
+        <li>Web‑based Logistics Management System</li>
+        <li>Infinity Book Store Website</li>
+        <li>AI‑Based Login Anomaly Detection</li>
+        <li>IoT Street Light Fault Monitoring System</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates" class="page">
+    <div class="card">
+      <h2>Certificates</h2>
+      <ul>
+        <li>NPTEL – Privacy & Security in Online Social Media</li>
+        <li>NPTEL – E‑Business</li>
+        <li>NPTEL – Responsible and Safe AI Systems</li>
+        <li>AWS – Cloud Computing</li>
+        <li>Microsoft – Cyber Security (40 Hours)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="page">
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Email: seema27082005@gmail.com</p>
+      <p>Phone: +91 90428 59671</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function openPage(id,btn){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.topnav button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
